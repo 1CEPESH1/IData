@@ -1,13 +1,6 @@
 #include "IData.h"
 
-void print(LinkedList& l){
-    Node* p = l.GetHead();
-    while(p != nullptr){
-        std::cout << p->nameNode << "\t";
-        p = p->next;
-    }
-    std::cout << std::endl;
-}
+
 int main() {
     LinkedList l;
     l.push_back(1);
@@ -16,13 +9,19 @@ int main() {
 
 
     print(l);
-    l.deletelist();
 
-    l.push_back(3);
+    l.deletelist();
+    print(l);
+
+
+    l.push_back(4);
     l.push_back(2);
 
     print(l);
 
+//    int k = 10;
+//    (++k)++;
+//    std::cout << k << "\n";
     return 0;
 }
 /*если пишем private, то все, что было public становится private, если пишем public
