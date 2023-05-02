@@ -40,11 +40,10 @@ public:
         }
         else{
             Node* p = Head;
-            while(p->next != nullptr){
+            while(p != nullptr){
                 p = p->next;
             }
-            p->next = new Node;
-            p = p->next;
+            p = new Node;
             p->nameNode = nameNode;
             p->next = nullptr;
         }
