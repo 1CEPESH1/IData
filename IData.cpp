@@ -1,6 +1,6 @@
 #include "IData.h"
 
-
+/////////////////////////////////////////////LinkedList//////////////////////////////////////////////////////////////
 LinkedList::LinkedList() {
     Head = nullptr;
 }
@@ -17,7 +17,6 @@ void LinkedList::push_back(int nameNode) {
         {
             p = p->next;
         }
-
         p->next = new Node;
         p = p->next;
         p->next = nullptr;
@@ -61,4 +60,91 @@ void LinkedList::deletelist()
         p = x->next;
     }
     Head = nullptr;
+}
+
+///////////////////////////////////////DoubleLinkedList//////////////////////////////////////////////////////////////
+
+
+DoubleLinkedList::DoubleLinkedList() {
+    Head = nullptr;
+    Tail = nullptr;
+}
+
+DoubleLinkedList::~DoubleLinkedList() {
+
+}
+
+
+void DoubleLinkedList::push_back(int nameDoubleNode){
+    if(Head!=nullptr)
+    {
+        DoubleNode* p = Head;
+
+        while(p->next!=nullptr)
+        {
+            p = p->next;
+            Tail = Tail->next;
+        }
+
+        p->next = new DoubleNode;
+        Tail = p->next;
+        Tail->previous = p;
+        Tail->next = nullptr;
+        Tail->nameDoubleNode = nameDoubleNode;
+
+    }
+    else
+    {
+        Head = new DoubleNode;
+        Tail = Head;
+        DoubleNode*  p = Head;
+
+        p->next = nullptr;
+        Tail->previous = nullptr;
+        Tail->next = nullptr;
+        Head->previous = nullptr;
+        Tail->nameDoubleNode = nameDoubleNode;
+        p->nameDoubleNode = nameDoubleNode;
+    }
+}
+DoubleNode* DoubleLinkedList::GetHead() {
+    return Head;
+}
+DoubleNode* DoubleLinkedList::GetTail() {
+    return Tail;
+}
+
+void printAtFirst(DoubleLinkedList& l)
+{
+    DoubleNode* p = l.GetHead();
+    while(p!=nullptr) {
+        std::cout << p->nameDoubleNode << std::endl;
+        p = p->next;
+    }
+}
+
+void printEnd(DoubleLinkedList& l)
+{
+    DoubleNode* p = l.GetTail();
+    while(p!=nullptr) {
+        std::cout << p->nameDoubleNode << std::endl;
+        p = p->previous;
+    }
+}
+
+void DoubleLinkedList::deletenode(DoubleNode* l){
+    delete l;
+}
+
+void DoubleLinkedList::deletelist(){
+    DoubleNode* x = Head;
+    DoubleNode* p = x->next;
+    while(x->next != nullptr)
+    {
+        deletenode(x);
+        x = p;
+        p = x->next;
+    }
+    Head = nullptr;
+    Tail = nullptr;
 }

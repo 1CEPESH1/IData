@@ -1,8 +1,6 @@
 #include <iostream>
 
-/*class IData{
-
-};*/
+/////////////////////////////////////////////LinkedList//////////////////////////////////////////////////////////////
 
 class Node {
 public:
@@ -22,3 +20,28 @@ public:
     Node* GetHead();
 };
 void print(LinkedList& l);
+
+///////////////////////////////////////////DoubleLinkedList/////////////////////////////////////////////////////////
+
+class DoubleNode {
+public:
+    DoubleNode* next;
+    DoubleNode* previous;
+    int nameDoubleNode;
+    static int countNodes;
+};
+class DoubleLinkedList{
+private:
+    DoubleNode* Head;
+    DoubleNode* Tail;
+public:
+    DoubleLinkedList();
+    ~DoubleLinkedList();
+    void deletenode(DoubleNode* l);
+    void deletelist();
+    void push_back(int nameDoubleNode);
+    DoubleNode* GetHead();
+    DoubleNode* GetTail();
+};
+void printAtFirst(DoubleLinkedList& l);
+void printEnd(DoubleLinkedList& l);

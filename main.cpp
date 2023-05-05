@@ -2,27 +2,19 @@
 
 
 int main() {
-    LinkedList l;
+    DoubleLinkedList l;
     l.push_back(1);
     l.push_back(2);
     l.push_back(3);
 
-
-    print(l);
-
+    printAtFirst(l);
+    printEnd(l);
     l.deletelist();
-    print(l);
-
-
+    printAtFirst(l);
+    printEnd(l);
     l.push_back(4);
     l.push_back(2);
-
-    print(l);
-
-//    int k = 10;
-//    (++k)++;
-//    std::cout << k << "\n";
+    printAtFirst(l);
+    printEnd(l);
     return 0;
 }
-/*если пишем private, то все, что было public становится private, если пишем public
-*/
