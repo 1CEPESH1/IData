@@ -45,3 +45,4 @@ public:
 };
 void printAtFirst(DoubleLinkedList& l);
 void printEnd(DoubleLinkedList& l);
+void sum(LinkedList (l1) , LinkedList (l2));

@@ -38,7 +38,7 @@ Node* LinkedList::GetHead() {
 void print(LinkedList& l)
 {
     Node* p = l.GetHead();
-    while(p!=nullptr) {
+    while(p !=nullptr) {
         std::cout << p->nameNode << std::endl;
         p = p->next;
     }
@@ -147,4 +147,37 @@ void DoubleLinkedList::deletelist(){
     }
     Head = nullptr;
     Tail = nullptr;
+}
+
+/////////////////////////////////////////SUM_LIST///////////////////////////////////////////////////////
+
+void sum(LinkedList (l1) , LinkedList (l2))
+{
+
+    Node* current1 = l1.LinkedList::GetHead();
+    Node* current2 = l2.LinkedList::GetHead();
+    while (current1 != nullptr)
+    {
+        current1->nameNode += current2->nameNode;
+        if (current1->nameNode > 9)
+        {
+            current1->nameNode % 10;
+
+            current1 = current1->next;
+            current2 = current2->next;
+
+            current2->nameNode++;
+
+            if (current1->next == nullptr)
+            {
+                l1.push_back(1);
+            }
+        }
+        if (current1->nameNode < 10)
+        {
+            current1 = current1->next;
+            current2 = current2->next;
+
+        }
+    }
 }
